@@ -9,3 +9,5 @@ It builds the following ROM:
 To set up the repository, see [INSTALL.md](INSTALL.md).
 
 For contacts and other pret projects, see [pret.github.io](https://pret.github.io/).
+
+Credits go to [Dizzy Egg](https://github.com/DizzyEggg), [Arlequiin](https://github.com/BenchBadr) and [Pokécreatorfr](https://github.com/Pokecreatorfr) for the [original branch](https://github.com/DizzyEggg/pokeemerald/tree/french) this was based on.
