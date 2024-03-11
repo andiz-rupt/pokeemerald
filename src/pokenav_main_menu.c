@@ -672,6 +672,9 @@ void UpdateRegionMapRightHeaderTiles(u32 menuGfxId)
         menu->leftHeaderSprites[1]->oam.tileNum = GetSpriteTileStartByTag(2) + 64;
 }
 
+/**
+ * French Difference
+*/
 static void LoadLeftHeaderGfxForMenu(u32 menuGfxId)
 {
     struct Pokenav_MainMenu *menu;
@@ -688,10 +691,7 @@ static void LoadLeftHeaderGfxForMenu(u32 menuGfxId)
     RequestDma3Copy(gDecompressionBuffer, (void *)OBJ_VRAM0 + (GetSpriteTileStartByTag(2) * 32), size, 1);
     menu->leftHeaderSprites[1]->oam.tileNum = GetSpriteTileStartByTag(2) + sMenuLeftHeaderSpriteSheets[menuGfxId].size;
 
-    if (menuGfxId == POKENAV_GFX_MAP_MENU_ZOOMED_OUT || menuGfxId == POKENAV_GFX_MAP_MENU_ZOOMED_IN)
-        menu->leftHeaderSprites[1]->x2 = 56;
-    else
-        menu->leftHeaderSprites[1]->x2 = 64;
+    menu->leftHeaderSprites[1]->x2 = 64;
 }
 
 static void LoadLeftHeaderGfxForSubMenu(u32 menuGfxId)
@@ -761,7 +761,7 @@ static void ShowLeftHeaderSprites(u32 startY, bool32 isOnRightSide)
     if (!isOnRightSide)
         start = -96, end = 32;
     else
-        start = 256, end = 160;
+        start = 256, end = 144; //!< French Difference
 
     for (i = 0; i < (s32)ARRAY_COUNT(menu->leftHeaderSprites); i++)
     {

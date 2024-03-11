@@ -2525,8 +2525,9 @@ u8 RfuGetStatus(void)
 
 bool32 RfuHasErrored(void)
 {
-    u32 status = RfuGetStatus();
-    if (status == RFU_STATUS_FATAL_ERROR || status == RFU_STATUS_CONNECTION_ERROR)
+    // RFU_STATUS_OK will underflow here intentionally
+    u32 status = RfuGetStatus() - 1;
+    if (status < RFU_STATUS_CONNECTION_ERROR)
         return TRUE;
     else
         return FALSE;

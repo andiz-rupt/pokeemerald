@@ -313,6 +313,8 @@ static void GenerateInitialRentalMons(void)
         monSetId = Random() % NUM_SLATEPORT_TENT_MONS;
         for (j = firstMonId; j < firstMonId + i; j++)
         {
+            //!< French Difference ? Or is it just because this is an old repo ?
+            u16 monId = monIds[j];
             if (monIds[j] == monSetId)
                 break;
             if (species[j] == gFacilityTrainerMons[monSetId].species)

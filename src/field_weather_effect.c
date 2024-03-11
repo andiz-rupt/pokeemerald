@@ -1452,7 +1452,7 @@ static void FogHorizontalSpriteCallback(struct Sprite *sprite)
 {
     sprite->y2 = (u8)gSpriteCoordOffsetY;
     sprite->x = gWeatherPtr->fogHScrollPosX + 32 + sprite->tSpriteColumn * 64;
-    if (sprite->x >= DISPLAY_WIDTH + 32)
+    if (sprite->x > DISPLAY_WIDTH + 31)
     {
         sprite->x = (DISPLAY_WIDTH * 2) + gWeatherPtr->fogHScrollPosX - (4 - sprite->tSpriteColumn) * 64;
         sprite->x &= 0x1FF;
@@ -1711,7 +1711,7 @@ static void UpdateAshSprite(struct Sprite *sprite)
 
     sprite->y = gSpriteCoordOffsetY + sprite->tOffsetY;
     sprite->x = gWeatherPtr->ashBaseSpritesX + 32 + sprite->tSpriteColumn * 64;
-    if (sprite->x >= DISPLAY_WIDTH + 32)
+    if (sprite->x > DISPLAY_WIDTH + 31)
     {
         sprite->x = gWeatherPtr->ashBaseSpritesX + (DISPLAY_WIDTH * 2) - (4 - sprite->tSpriteColumn) * 64;
         sprite->x &= 0x1FF;
@@ -1921,7 +1921,7 @@ static void UpdateFogDiagonalSprite(struct Sprite *sprite)
 {
     sprite->y2 = gWeatherPtr->fogDPosY;
     sprite->x = gWeatherPtr->fogDBaseSpritesX + 32 + sprite->tSpriteColumn * 64;
-    if (sprite->x >= DISPLAY_WIDTH + 32)
+    if (sprite->x > DISPLAY_WIDTH + 31)
     {
         sprite->x = gWeatherPtr->fogDBaseSpritesX + (DISPLAY_WIDTH * 2) - (4 - sprite->tSpriteColumn) * 64;
         sprite->x &= 0x1FF;
@@ -2197,7 +2197,7 @@ static void UpdateSandstormSprite(struct Sprite *sprite)
 {
     sprite->y2 = gWeatherPtr->sandstormPosY;
     sprite->x = gWeatherPtr->sandstormBaseSpritesX + 32 + sprite->tSpriteColumn * 64;
-    if (sprite->x >= DISPLAY_WIDTH + 32)
+    if (sprite->x > DISPLAY_WIDTH + 31)
     {
         sprite->x = gWeatherPtr->sandstormBaseSpritesX + (DISPLAY_WIDTH * 2) - (4 - sprite->tSpriteColumn) * 64;
         sprite->x &= 0x1FF;

@@ -299,7 +299,7 @@ bool16 AddTextPrinter(struct TextPrinterTemplate *printerTemplate, u8 speed, voi
     else
     {
         sTempTextPrinter.textSpeed = 0;
-
+        
         // Render all text (up to limit) at once
         for (j = 0; j < 0x400; ++j)
         {

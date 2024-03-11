@@ -1165,10 +1165,13 @@ static void TryCreateWirelessSprites(void)
     }
 }
 
+/**
+ * French Difference
+*/
 static s32 DrawResultsTextWindow(const u8 *text, u8 spriteId)
 {
     u16 windowId;
-    int tileWidth;
+    int origWidth;
     int strWidth;
     u8 *spriteTilePtrs[4];
     u8 *dst;
@@ -1180,12 +1183,12 @@ static s32 DrawResultsTextWindow(const u8 *text, u8 spriteId)
     windowId = AddWindow(&windowTemplate);
     FillWindowPixelBuffer(windowId, PIXEL_FILL(1));
 
-    strWidth = GetStringWidth(FONT_NORMAL, text, 0);
-    tileWidth = (strWidth + 9) / 8;
-    if (tileWidth > DISPLAY_TILE_WIDTH)
-        tileWidth = DISPLAY_TILE_WIDTH;
+    origWidth = GetStringWidth(FONT_NORMAL, text, 0);
+    strWidth = (origWidth + 9) / 8;
+    if (strWidth > 30)
+     strWidth = 30;
 
-    AddTextPrinterParameterized3(windowId, FONT_NORMAL, (tileWidth * 8 - strWidth) / 2, 1, sContestLinkTextColors, TEXT_SKIP_DRAW, text);
+    AddTextPrinterParameterized3(windowId, FONT_NORMAL, (strWidth * 8 - origWidth) / 2, 1, sContestLinkTextColors, TEXT_SKIP_DRAW, text);
     {
         s32 i;
         struct Sprite *sprite;
@@ -1208,7 +1211,7 @@ static s32 DrawResultsTextWindow(const u8 *text, u8 spriteId)
         CpuCopy32(src + 128, dst + 0x200, 0x20);
         CpuCopy32(src + 64,  dst + 0x300, 0x20);
 
-        for (i = 0; i < tileWidth; i++)
+        for (i = 0; i < strWidth; i++)
         {
             dst = &spriteTilePtrs[(i + 1) / 8][((i + 1) % 8) * 32];
             CpuCopy32(src + 192, dst, 0x20);
@@ -1226,7 +1229,7 @@ static s32 DrawResultsTextWindow(const u8 *text, u8 spriteId)
     }
     RemoveWindow(windowId);
 
-    return (DISPLAY_WIDTH - (tileWidth + 2) * 8) / 2;
+    return (DISPLAY_WIDTH - (strWidth + 2) * 8) / 2;
 }
 
 static void CreateResultsTextWindowSprites(void)
@@ -1402,67 +1405,63 @@ static void HideLinkResultsTextBox(void)
         | WININ_WIN1_BG_ALL | WININ_WIN1_OBJ | WININ_WIN1_CLR);
 }
 
-static void LoadContestResultsTitleBarTilemaps(void)
+/**
+ * French Difference
+ * 
+ * Most values are changed
+*/
+void LoadContestResultsTitleBarTilemaps(void)
 {
     u8 palette;
-    int x, y;
 
-    x = 5;
-    y = 1;
     if (gLinkContestFlags & LINK_CONTEST_FLAG_IS_LINK)
     {
-        CopyToBgTilemapBufferRect(2, gContestResultsTitle_Link_Tilemap, 5, 1, 5, 2);
-        x = 10;
+        CopyToBgTilemapBufferRect(2, gContestResultsTitle_Link_Tilemap, 17, 1, 6, 2);
     }
     else if (gSpecialVar_ContestRank == CONTEST_RANK_NORMAL)
     {
-        CopyToBgTilemapBufferRect(2, gContestResultsTitle_Normal_Tilemap, 5, 1, 10, 2);
-        x = 15;
+        CopyToBgTilemapBufferRect(2, gContestResultsTitle_Normal_Tilemap, 17, 1, 10, 2);
     }
     else if (gSpecialVar_ContestRank == CONTEST_RANK_SUPER)
     {
-        CopyToBgTilemapBufferRect(2, gContestResultsTitle_Super_Tilemap, 5, 1, 10, 2);
-        x = 15;
+        CopyToBgTilemapBufferRect(2, gContestResultsTitle_Super_Tilemap, 17, 1, 10, 2);
     }
     else if (gSpecialVar_ContestRank == CONTEST_RANK_HYPER)
     {
-        CopyToBgTilemapBufferRect(2, gContestResultsTitle_Hyper_Tilemap, 5, 1, 10, 2);
-        x = 15;
+        CopyToBgTilemapBufferRect(2, gContestResultsTitle_Hyper_Tilemap, 17, 1, 10, 2);
     }
     else // CONTEST_RANK_MASTER
     {
-        CopyToBgTilemapBufferRect(2, gContestResultsTitle_Master_Tilemap, 5, 1, 10, 2);
-        x = 15;
+        CopyToBgTilemapBufferRect(2, gContestResultsTitle_Master_Tilemap, 17, 1, 10, 2);
     }
 
     if (gSpecialVar_ContestCategory == CONTEST_CATEGORY_COOL)
     {
         palette = 0;
-        CopyToBgTilemapBufferRect(2, gContestResultsTitle_Cool_Tilemap, x, y, 5, 2);
+        CopyToBgTilemapBufferRect(2, gContestResultsTitle_Cool_Tilemap, 10, 1, 7, 2);
     }
     else if (gSpecialVar_ContestCategory == CONTEST_CATEGORY_BEAUTY)
     {
         palette = 1;
-        CopyToBgTilemapBufferRect(2, gContestResultsTitle_Beauty_Tilemap, x, y, 5, 2);
+        CopyToBgTilemapBufferRect(2, gContestResultsTitle_Beauty_Tilemap, 10, 1, 7, 2);
     }
     else if (gSpecialVar_ContestCategory == CONTEST_CATEGORY_CUTE)
     {
         palette = 2;
-        CopyToBgTilemapBufferRect(2, gContestResultsTitle_Cute_Tilemap, x, y, 5, 2);
+        CopyToBgTilemapBufferRect(2, gContestResultsTitle_Cute_Tilemap, 10, 1, 7, 2);
     }
     else if (gSpecialVar_ContestCategory == CONTEST_CATEGORY_SMART)
     {
         palette = 3;
-        CopyToBgTilemapBufferRect(2, gContestResultsTitle_Smart_Tilemap, x, y, 5, 2);
+        CopyToBgTilemapBufferRect(2, gContestResultsTitle_Smart_Tilemap, 10, 1, 7, 2);
     }
     else // CONTEST_CATEGORY_TOUGH
     {
         palette = 4;
-        CopyToBgTilemapBufferRect(2, gContestResultsTitle_Tough_Tilemap, x, y, 5, 2);
+        CopyToBgTilemapBufferRect(2, gContestResultsTitle_Tough_Tilemap, 10, 1, 7, 2);
     }
 
-    x += 5;
-    CopyToBgTilemapBufferRect(2, gContestResultsTitle_Tilemap, x, y, 6, 2);
+    CopyToBgTilemapBufferRect(2, gContestResultsTitle_Tilemap, 5, 1, 5, 2);
     CopyToBgTilemapBufferRect_ChangePalette(2, sContestResults->tilemapBuffers[2], 0, 0, 32, 4, palette);
 }
 

@@ -35,7 +35,7 @@ const u8 gGameVersion = GAME_VERSION;
 
 const u8 gGameLanguage = GAME_LANGUAGE; // English
 
-const char BuildDateTime[] = "2005 02 21 11:10";
+const char BuildDateTime[] = "2005 07 01 18:30";
 
 const IntrFunc gIntrTableTemplate[] =
 {
@@ -121,13 +121,6 @@ void AgbMain()
     gLinkTransferringData = FALSE;
     sUnusedVar = 0xFC0;
 
-#ifndef NDEBUG
-#if (LOG_HANDLER == LOG_HANDLER_MGBA_PRINT)
-    (void) MgbaOpen();
-#elif (LOG_HANDLER == LOG_HANDLER_AGB_PRINT)
-    AGBPrintfInit();
-#endif
-#endif
     for (;;)
     {
         ReadKeys();

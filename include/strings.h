@@ -213,6 +213,7 @@ extern const u8 gMenuText_Walk[];
 extern const u8 gMenuText_Deselect[];
 extern const u8 gMenuText_CheckTag[];
 extern const u8 gMenuText_Confirm[];
+extern const u8 gMenuText_Confirm2[];
 extern const u8 gMenuText_Show[];
 extern const u8 gMenuText_Give2[];
 
@@ -527,6 +528,11 @@ extern const u8 gText_NumberClear01[];
 extern const u8 gText_5MarksPokemon[];
 extern const u8 gText_UnkHeight[];
 extern const u8 gText_UnkWeight[];
+extern const u8 gText_EmptyPkmnCategory[];
+extern const u8 gText_EmptyHeight[];
+extern const u8 gText_EmptyWeight[];
+extern const u8 gText_EmptyPokedexInfo1[];
+extern const u8 gText_EmptyPokedexInfo2[];
 extern const u8 gText_HTHeight[];
 extern const u8 gText_WTWeight[];
 extern const u8 gText_SearchingPleaseWait[];
@@ -2152,7 +2158,9 @@ extern const u8 gText_Switch2[];
 extern const u8 gText_Item[];
 extern const u8 gText_NotPkmnOtherTrainerWants[];
 extern const u8 gText_ThatIsntAnEgg[];
+extern const u8 gText_PkmnCantBeTradedNow[];
 extern const u8 gText_OtherTrainersPkmnCantBeTraded[];
+extern const u8 gText_EggCantBeTradedNow[];
 extern const u8 gText_OtherTrainerCantAcceptPkmn[];
 extern const u8 gText_CantTradeWithTrainer[];
 
@@ -2480,7 +2488,8 @@ extern const u8 gText_MrStoneMatchCallDesc[];
 extern const u8 gText_MrStoneMatchCallName[];
 extern const u8 gText_StevenMatchCallDesc[];
 extern const u8 gText_StevenMatchCallName[];
-extern const u8 gText_MayBrendanMatchCallDesc[];
+extern const u8 gText_BrendanMatchCallDesc[];
+extern const u8 gText_MayMatchCallDesc[];
 extern const u8 gText_WallyMatchCallDesc[];
 extern const u8 gText_NormanMatchCallDesc[];
 extern const u8 gText_NormanMatchCallName[];
@@ -3025,5 +3034,12 @@ extern const u8 gText_YourName[];
 extern const u8 gText_BoxName[];
 extern const u8 gText_PkmnsNickname[];
 extern const u8 gText_TellHimTheWords[];
+
+/**
+ * French Specific
+*/
+extern const u8 gText_Eleve[];
+extern const u8 gText_Dresseur[];
+extern const u8 gText_Champion[];
 
 #endif // GUARD_STRINGS_H

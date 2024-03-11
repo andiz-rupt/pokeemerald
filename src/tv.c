@@ -45,6 +45,7 @@
 #include "constants/metatile_labels.h"
 #include "constants/moves.h"
 #include "constants/region_map_sections.h"
+#include "constants/script_menu.h"
 
 #define LAST_TVSHOW_IDX (TV_SHOWS_COUNT - 1)
 
@@ -940,8 +941,9 @@ void GabbyAndTyBeforeInterview(void)
     gSaveBlock1Ptr->gabbyAndTyData.mon2 = gBattleResults.playerMon2Species;
     gSaveBlock1Ptr->gabbyAndTyData.lastMove = gBattleResults.lastUsedMovePlayer;
     if (gSaveBlock1Ptr->gabbyAndTyData.battleNum != 0xFF)
+    {
         gSaveBlock1Ptr->gabbyAndTyData.battleNum++;
-
+    }
     gSaveBlock1Ptr->gabbyAndTyData.battleTookMoreThanOneTurn = gBattleResults.playerMonWasDamaged;
 
     if (gBattleResults.playerFaintCounter != 0)
@@ -973,7 +975,9 @@ void GabbyAndTyBeforeInterview(void)
 
     TakeGabbyAndTyOffTheAir();
     if (gSaveBlock1Ptr->gabbyAndTyData.lastMove == MOVE_NONE)
-        FlagSet(FLAG_TEMP_SKIP_GABBY_INTERVIEW);
+    {
+        FlagSet(FLAG_TEMP_1);
+    }
 }
 
 void GabbyAndTyAfterInterview(void)

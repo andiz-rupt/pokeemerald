@@ -20,6 +20,10 @@
 #define AI_ACTION_FLEE          (1 << 1)
 #define AI_ACTION_WATCH         (1 << 2)
 #define AI_ACTION_DO_NOT_ATTACK (1 << 3)
+#define AI_ACTION_UNK5          (1 << 4)
+#define AI_ACTION_UNK6          (1 << 5)
+#define AI_ACTION_UNK7          (1 << 6)
+#define AI_ACTION_UNK8          (1 << 7)
 
 #define AI_THINKING_STRUCT ((struct AI_ThinkingStruct *)(gBattleResources->ai))
 #define BATTLE_HISTORY ((struct BattleHistory *)(gBattleResources->battleHistory))

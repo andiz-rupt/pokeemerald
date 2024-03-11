@@ -162,7 +162,11 @@ void AnimTask_ShakeMon2(u8 taskId)
     {
         spriteId = GetAnimBattlerSpriteId(gBattleAnimArgs[0]);
         if (spriteId == SPRITE_NONE)
-            abort = TRUE;
+        {
+            //!< French Difference ?
+            DestroyAnimVisualTask(taskId);
+            return;
+    }
     }
     else if (gBattleAnimArgs[0] != ANIM_ATTACKER_FORCE)
     {

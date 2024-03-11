@@ -328,7 +328,7 @@ static const struct SpriteTemplate sHealthbarSpriteTemplates[MAX_BATTLERS_COUNT]
 static const struct Subsprite sUnused_Subsprites_0[] =
 {
     {
-        .x = -16,
+        .x = DISPLAY_WIDTH,
         .y = 0,
         .shape = SPRITE_SHAPE(64x32),
         .size = SPRITE_SIZE(64x32),
@@ -344,7 +344,7 @@ static const struct Subsprite sUnused_Subsprites_0[] =
         .priority = 1
     },
     {
-        .x = -16,
+        .x = DISPLAY_WIDTH,
         .y = 32,
         .shape = SPRITE_SHAPE(32x8),
         .size = SPRITE_SIZE(32x8),
@@ -373,7 +373,7 @@ static const struct Subsprite sUnused_Subsprites_0[] =
 static const struct Subsprite sUnused_Subsprites_2[] =
 {
     {
-        .x = -16,
+        .x = DISPLAY_WIDTH,
         .y = 0,
         .shape = SPRITE_SHAPE(64x32),
         .size = SPRITE_SIZE(64x32),
@@ -389,7 +389,7 @@ static const struct Subsprite sUnused_Subsprites_2[] =
         .priority = 1
     },
     {
-        .x = -16,
+        .x = DISPLAY_WIDTH,
         .y = 32,
         .shape = SPRITE_SHAPE(32x8),
         .size = SPRITE_SIZE(32x8),
@@ -423,7 +423,7 @@ static const struct Subsprite sUnused_Subsprites_2[] =
 static const struct Subsprite sUnused_Subsprites_1[] =
 {
     {
-        .x = -16,
+        .x = DISPLAY_WIDTH,
         .y = 0,
         .shape = SPRITE_SHAPE(64x32),
         .size = SPRITE_SIZE(64x32),
@@ -444,7 +444,7 @@ static const struct Subsprite sUnused_Subsprites_1[] =
 static const struct Subsprite sUnused_Subsprites_3[] =
 {
     {
-        .x = -16,
+        .x = DISPLAY_WIDTH,
         .y = 0,
         .shape = SPRITE_SHAPE(64x32),
         .size = SPRITE_SIZE(64x32),
@@ -467,7 +467,7 @@ static const struct Subsprite sUnused_Subsprites_3[] =
 static const struct Subsprite sHealthBar_Subsprites_Player[] =
 {
     {
-        .x = -16,
+        .x = DISPLAY_WIDTH,
         .y = 0,
         .shape = SPRITE_SHAPE(32x8),
         .size = SPRITE_SIZE(32x8),
@@ -491,7 +491,7 @@ static const struct Subsprite sHealthBar_Subsprites_Player[] =
 static const struct Subsprite sHealthBar_Subsprites_Opponent[] =
 {
     {
-        .x = -16,
+        .x = DISPLAY_WIDTH,
         .y = 0,
         .shape = SPRITE_SHAPE(32x8),
         .size = SPRITE_SIZE(32x8),
@@ -507,7 +507,7 @@ static const struct Subsprite sHealthBar_Subsprites_Opponent[] =
         .priority = 1
     },
     {
-        .x = -32,
+        .x = DISPLAY_WIDTH - 16,
         .y = 0,
         .shape = SPRITE_SHAPE(8x8),
         .size = SPRITE_SIZE(8x8),
@@ -535,7 +535,7 @@ static const struct SubspriteTable sHealthBar_SubspriteTables[] =
 static const struct Subsprite sStatusSummaryBar_Subsprites_Enter[] =
 {
     {
-        .x = 32 * -3,
+        .x = 32 * 5,
         .y = 0,
         .shape = SPRITE_SHAPE(32x8),
         .size = SPRITE_SIZE(32x8),
@@ -543,7 +543,7 @@ static const struct Subsprite sStatusSummaryBar_Subsprites_Enter[] =
         .priority = 1
     },
     {
-        .x = 32 * -2,
+        .x = 32 * 6,
         .y = 0,
         .shape = SPRITE_SHAPE(32x8),
         .size = SPRITE_SIZE(32x8),
@@ -551,7 +551,7 @@ static const struct Subsprite sStatusSummaryBar_Subsprites_Enter[] =
         .priority = 1
     },
     {
-        .x = 32 * -1,
+        .x = 32 * 7,
         .y = 0,
         .shape = SPRITE_SHAPE(32x8),
         .size = SPRITE_SIZE(32x8),
@@ -575,7 +575,7 @@ static const struct Subsprite sStatusSummaryBar_Subsprites_Enter[] =
 static const struct Subsprite sStatusSummaryBar_Subsprites_Exit[] =
 {
     {
-        .x = 32 * -3,
+        .x = 32 * 5,
         .y = 0,
         .shape = SPRITE_SHAPE(32x8),
         .size = SPRITE_SIZE(32x8),
@@ -583,7 +583,7 @@ static const struct Subsprite sStatusSummaryBar_Subsprites_Exit[] =
         .priority = 1
     },
     {
-        .x = 32 * -2,
+        .x = 32 * 6,
         .y = 0,
         .shape = SPRITE_SHAPE(32x8),
         .size = SPRITE_SIZE(32x8),
@@ -591,7 +591,7 @@ static const struct Subsprite sStatusSummaryBar_Subsprites_Exit[] =
         .priority = 1
     },
     {
-        .x = 32 * -1,
+        .x = 32 * 7,
         .y = 0,
         .shape = SPRITE_SHAPE(32x8),
         .size = SPRITE_SIZE(32x8),

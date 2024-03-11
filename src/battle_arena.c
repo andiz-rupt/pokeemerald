@@ -582,7 +582,8 @@ void BattleArena_InitPoints(void)
 
 void BattleArena_AddMindPoints(u8 battler)
 {
-    gBattleStruct->arenaMindPoints[battler] += sMindRatings[gCurrentMove];
+    s8 *mindPoints = gBattleStruct->arenaMindPoints;
+    mindPoints[battler] += sMindRatings[gCurrentMove];
 }
 
 void BattleArena_AddSkillPoints(u8 battler)

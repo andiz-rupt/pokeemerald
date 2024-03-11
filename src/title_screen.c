@@ -32,8 +32,8 @@ enum {
 #define VERSION_BANNER_RIGHT_TILEOFFSET 64
 #define VERSION_BANNER_LEFT_X 98
 #define VERSION_BANNER_RIGHT_X 162
-#define VERSION_BANNER_Y 2
-#define VERSION_BANNER_Y_GOAL 66
+#define VERSION_BANNER_Y 4
+#define VERSION_BANNER_Y_GOAL 68
 #define START_BANNER_X 128
 
 #define CLEAR_SAVE_BUTTON_COMBO (B_BUTTON | SELECT_BUTTON | DPAD_UP)
@@ -779,7 +779,7 @@ static void Task_TitleScreenPhase2(u8 taskId)
 // Show Rayquaza silhouette and process main title screen input
 static void Task_TitleScreenPhase3(u8 taskId)
 {
-    if (JOY_NEW(A_BUTTON) || JOY_NEW(START_BUTTON))
+    if ((JOY_NEW(A_BUTTON)) || (JOY_NEW(START_BUTTON)))
     {
         FadeOutBGM(4);
         BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 16, RGB_WHITEALPHA);

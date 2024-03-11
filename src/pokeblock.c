@@ -312,7 +312,7 @@ static const struct WindowTemplate sWindowTemplates[] =
         .bg = 0,
         .tilemapLeft = 2,
         .tilemapTop = 1,
-        .width = 9,
+        .width = 10, //!< French Difference
         .height = 2,
         .paletteNum = 15,
         .baseBlock = 0x1E
@@ -324,7 +324,7 @@ static const struct WindowTemplate sWindowTemplates[] =
         .width = 14,
         .height = 18,
         .paletteNum = 15,
-        .baseBlock = 0x30
+        .baseBlock = 0x32 //!< French Difference
     },
     [WIN_SPICY] = {
         .bg = 0,
@@ -333,7 +333,7 @@ static const struct WindowTemplate sWindowTemplates[] =
         .width = 5,
         .height = 2,
         .paletteNum = 15,
-        .baseBlock = 0x12C
+        .baseBlock = 0x12E //!< French Difference
     },
     [WIN_DRY] = {
         .bg = 0,
@@ -342,7 +342,7 @@ static const struct WindowTemplate sWindowTemplates[] =
         .width = 5,
         .height = 2,
         .paletteNum = 15,
-        .baseBlock = 0x136
+        .baseBlock = 0x138 //!< French Difference
     },
     [WIN_SWEET] = {
         .bg = 0,
@@ -351,7 +351,7 @@ static const struct WindowTemplate sWindowTemplates[] =
         .width = 5,
         .height = 2,
         .paletteNum = 15,
-        .baseBlock = 0x140
+        .baseBlock = 0x142 //!< French Difference
     },
     [WIN_BITTER] = {
         .bg = 0,
@@ -360,7 +360,7 @@ static const struct WindowTemplate sWindowTemplates[] =
         .width = 5,
         .height = 2,
         .paletteNum = 15,
-        .baseBlock = 0x14A
+        .baseBlock = 0x14C //!< French Difference
     },
     [WIN_SOUR] = {
         .bg = 0,
@@ -369,7 +369,7 @@ static const struct WindowTemplate sWindowTemplates[] =
         .width = 5,
         .height = 2,
         .paletteNum = 15,
-        .baseBlock = 0x154
+        .baseBlock = 0x156 //!< French Difference
     },
     [WIN_FEEL] = {
         .bg = 0,
@@ -378,7 +378,7 @@ static const struct WindowTemplate sWindowTemplates[] =
         .width = 2,
         .height = 2,
         .paletteNum = 15,
-        .baseBlock = 0x15E
+        .baseBlock = 0x160 //!< French Difference
     },
     [WIN_ACTIONS_TALL] = {
         .bg = 1,
@@ -387,7 +387,7 @@ static const struct WindowTemplate sWindowTemplates[] =
         .width = 6,
         .height = 6,
         .paletteNum = 15,
-        .baseBlock = 0x162
+        .baseBlock = 0x164 //!< French Difference
     },
     [WIN_ACTIONS] = {
         .bg = 1,
@@ -396,7 +396,7 @@ static const struct WindowTemplate sWindowTemplates[] =
         .width = 6,
         .height = 4,
         .paletteNum = 15,
-        .baseBlock = 0x186
+        .baseBlock = 0x188 //!< French Difference
     },
     [WIN_TOSS_MSG] = {
         .bg = 1,
@@ -405,7 +405,7 @@ static const struct WindowTemplate sWindowTemplates[] =
         .width = 27,
         .height = 4,
         .paletteNum = 15,
-        .baseBlock = 0x19E
+        .baseBlock = 0x1A0 //!< French Difference
     },
     DUMMY_WIN_TEMPLATE
 };
@@ -418,7 +418,7 @@ static const struct WindowTemplate sTossPkblockWindowTemplate =
     .width = 5,
     .height = 4,
     .paletteNum = 15,
-    .baseBlock = 0x20A
+    .baseBlock = 0x20C //!< French Difference
 };
 
 static const struct ListMenuTemplate sPokeblockListMenuTemplate =
@@ -700,7 +700,7 @@ static void DrawPokeblockMenuTitleText(void)
     u8 i;
 
     const u8 *itemName = ItemId_GetName(ITEM_POKEBLOCK_CASE);
-    PrintOnPokeblockWindow(WIN_TITLE, itemName, GetStringCenterAlignXOffset(FONT_NORMAL, itemName, 0x48));
+    PrintOnPokeblockWindow(WIN_TITLE, itemName, GetStringCenterAlignXOffset(FONT_NORMAL, itemName, 0x50)); //!< French Difference
 
     PrintOnPokeblockWindow(WIN_SPICY,  gText_Spicy, 0);
     PrintOnPokeblockWindow(WIN_DRY,    gText_Dry, 0);

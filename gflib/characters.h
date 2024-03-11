@@ -213,12 +213,14 @@
 #define EXT_CTRL_CODE_PALETTE                0x05
 #define EXT_CTRL_CODE_FONT                   0x06
 #define EXT_CTRL_CODE_RESET_FONT             0x07
+#define EXT_CTRL_CODE_RESET_SIZE             EXT_CTRL_CODE_RESET_FONT
 #define EXT_CTRL_CODE_PAUSE                  0x08
 #define EXT_CTRL_CODE_PAUSE_UNTIL_PRESS      0x09
 #define EXT_CTRL_CODE_WAIT_SE                0x0A
 #define EXT_CTRL_CODE_PLAY_BGM               0x0B
 #define EXT_CTRL_CODE_ESCAPE                 0x0C
 #define EXT_CTRL_CODE_SHIFT_RIGHT            0x0D
+#define EXT_CTRL_CODE_SHIFT_TEXT             EXT_CTRL_CODE_SHIFT_TEXT
 #define EXT_CTRL_CODE_SHIFT_DOWN             0x0E
 #define EXT_CTRL_CODE_FILL_WINDOW            0x0F
 #define EXT_CTRL_CODE_PLAY_SE                0x10

@@ -272,6 +272,7 @@ void MovementType_RunInPlace(struct Sprite *);
 void MovementType_Invisible(struct Sprite *);
 void MovementType_WalkSlowlyInPlace(struct Sprite *);
 u8 GetSlideMovementAction(u32);
+u8 GetJumpInPlaceMovementAction(u32);
 u8 GetJumpMovementAction(u32);
 u8 GetJump2MovementAction(u32);
 u8 CreateCopySpriteAt(struct Sprite *sprite, s16 x, s16 y, u8 subpriority);

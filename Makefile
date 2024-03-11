@@ -37,7 +37,7 @@ EXE :=
 endif
 
 TITLE       := POKEMON EMER
-GAME_CODE   := BPEE
+GAME_CODE   := BPEF
 MAKER_CODE  := 01
 REVISION    := 0
 MODERN      ?= 0
@@ -63,12 +63,12 @@ else
   CPP := $(PREFIX)cpp
 endif
 
-ROM_NAME := pokeemerald.gba
+ROM_NAME := pokeemerald_fr.gba
 ELF_NAME := $(ROM_NAME:.gba=.elf)
 MAP_NAME := $(ROM_NAME:.gba=.map)
 OBJ_DIR_NAME := build/emerald
 
-MODERN_ROM_NAME := pokeemerald_modern.gba
+MODERN_ROM_NAME := pokeemerald_fr_modern.gba
 MODERN_ELF_NAME := $(MODERN_ROM_NAME:.gba=.elf)
 MODERN_MAP_NAME := $(MODERN_ROM_NAME:.gba=.map)
 MODERN_OBJ_DIR_NAME := build/modern
@@ -118,6 +118,8 @@ CPPFLAGS := -iquote include -iquote $(GFLIB_SUBDIR) -Wno-trigraphs -DMODERN=$(MO
 ifneq ($(MODERN),1)
 CPPFLAGS += -I tools/agbcc/include -I tools/agbcc -nostdinc -undef
 endif
+
+LDFLAGS = -Map ../../$(MAP)
 
 SHA1 := $(shell { command -v sha1sum || command -v shasum; } 2>/dev/null) -c
 GFX := tools/gbagfx/gbagfx$(EXE)
@@ -414,7 +416,6 @@ endif
 $(OBJ_DIR)/ld_script.ld: $(LD_SCRIPT) $(LD_SCRIPT_DEPS)
 	cd $(OBJ_DIR) && sed "s#tools/#../../tools/#g" ../../$(LD_SCRIPT) > ld_script.ld
 
-LDFLAGS = -Map ../../$(MAP)
 $(ELF): $(OBJ_DIR)/ld_script.ld $(OBJS) libagbsyscall
 	@echo "cd $(OBJ_DIR) && $(LD) $(LDFLAGS) -T ld_script.ld -o ../../$@ <objects> <lib>"
 	@cd $(OBJ_DIR) && $(LD) $(LDFLAGS) -T ld_script.ld --print-memory-usage -o ../../$@ $(OBJS_REL) $(LIB) | cat

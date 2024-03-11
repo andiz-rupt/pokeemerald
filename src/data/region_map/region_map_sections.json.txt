@@ -8,7 +8,9 @@
 
 ## for map_section in map_sections
 {% if getVar(map_section.name) == map_section.map_section %}
-static const u8 sMapName_{{ cleanString(map_section.name) }}[] = _("{{ map_section.name }}");
+static const u8 sMapName_{{ cleanString(map_section.name) }}[] = {% if map_section.name == "$" %} _("");
+{% else %} _("{{ map_section.name }}");
+{% endif %}
 {% endif %}
 {% if existsIn(map_section, "name_clone") %}
 static const u8 sMapName_{{ cleanString(map_section.name) }}_Clone[] = _("{{ map_section.name }}");

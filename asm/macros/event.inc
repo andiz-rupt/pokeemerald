@@ -985,7 +985,7 @@
 	.endm
 
 	@ Gives the player a Pokémon of the specified species and level, holding the specified item. The trailing 0s are unused parameters.
-	@ VAR_RESULT will be set to MON_GIVEN_TO_PARTY, MON_GIVEN_TO_PC, or MON_CANT_GIVE depending on the outcome.
+	@ VAR_RESULT will be set to MON_GIVEN_TO_PARTY, MON_GIVEN_TO_PC, or MON_CANT_GIVE depending on the outcome. 
 	.macro givemon species:req, level:req, item=ITEM_NONE
 	.byte 0x79
 	.2byte \species
@@ -997,7 +997,7 @@
 	.endm
 
 	@ Gives the player an Egg of the specified species.
-	@ VAR_RESULT will be set to MON_GIVEN_TO_PARTY, MON_GIVEN_TO_PC, or MON_CANT_GIVE depending on the outcome.
+	@ VAR_RESULT will be set to MON_GIVEN_TO_PARTY, MON_GIVEN_TO_PC, or MON_CANT_GIVE depending on the outcome. 
 	.macro giveegg species:req
 	.byte 0x7a
 	.2byte \species
@@ -1415,7 +1415,7 @@
 	.2byte \out
 	.endm
 
-	@ Gives 'count' coins to the player, up to a total of MAX_COINS.
+	@ Gives 'count' coins to the player, up to a total of MAX_COINS. 
 	@ If the player already has MAX_COINS then VAR_RESULT is set to TRUE, otherwise it is set to FALSE.
 	.macro addcoins count:req
 	.byte 0xb4
@@ -1585,6 +1585,13 @@
 	@ Checks if the modernFatefulEncounter bit is set for the Pokemon in the specified slot of the player's party. If it isn't set,
 	@ VAR_RESULT is TRUE. If the bit is set (or if the specified slot is empty or invalid), VAR_RESULT is FALSE.
 	.macro checkmodernfatefulencounter slot:req
+	.byte 0xce
+	.2byte \slot
+	.endm
+
+	@ Checks if the eventLegal bit is set for the Pokemon in the specified slot of the player's party. If it isn't set,
+	@ VAR_RESULT is TRUE. If the bit is set (or if the specified slot is empty or invalid), VAR_RESULT is FALSE.
+	.macro checkmoneventlegal slot:req
 	.byte 0xce
 	.2byte \slot
 	.endm

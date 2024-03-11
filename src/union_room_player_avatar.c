@@ -340,10 +340,15 @@ static void AnimateUnionRoomPlayer(u32 leaderId, struct UnionRoomObject * object
         }
         break;
     case 1:
-        if (object->schedAnim != UNION_ROOM_SPAWN_OUT)
+        if (object->schedAnim == UNION_ROOM_SPAWN_OUT)
+        {
+            object->state = 3;
+            object->animState = 0;
+        }
+        else
+        {
             break;
-        object->state = 3;
-        object->animState = 0;
+        }
         // fallthrough
     case 3:
         if (AnimateUnionRoomPlayerDespawn(&object->animState, leaderId, object) == 1)
@@ -564,7 +569,7 @@ bool32 TryInteractWithUnionRoomMember(struct RfuPlayerList *list, s16 *memberIdP
         for (memberId = 0; memberId < MAX_RFU_PLAYERS; memberId++)
         {
             s32 id = UR_PLAYER_SPRITE_ID(i, memberId);
-
+            
             // Is the player in front of a group member position?
             if (x != sUnionRoomPlayerCoords[i][0] + sUnionRoomGroupOffsets[memberId][0] + 7)
                 continue;

@@ -368,13 +368,16 @@ static void TryShinyAnimAfterMonAnim(void)
         {
             TryShinyAnimation(gActiveBattler, &gEnemyParty[gBattlerPartyIndexes[gActiveBattler]]);
         }
-        else if (gBattleSpritesDataPtr->healthBoxesData[gActiveBattler].finishedShinyMonAnim)
+        else
+        {
+            if (gBattleSpritesDataPtr->healthBoxesData[gActiveBattler].finishedShinyMonAnim)
         {
             gBattleSpritesDataPtr->healthBoxesData[gActiveBattler].triedShinyMonAnim = FALSE;
             gBattleSpritesDataPtr->healthBoxesData[gActiveBattler].finishedShinyMonAnim = FALSE;
             FreeSpriteTilesByTag(ANIM_TAG_GOLD_STARS);
             FreeSpritePaletteByTag(ANIM_TAG_GOLD_STARS);
             LinkOpponentBufferExecCompleted();
+            }
         }
     }
 }

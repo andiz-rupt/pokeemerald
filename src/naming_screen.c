@@ -44,7 +44,7 @@ enum {
 };
 
 #define KBROW_COUNT 4
-#define KBCOL_COUNT 8
+#define KBCOL_COUNT 9 //!< French Difference
 
 enum {
     GFXTAG_BACK_BUTTON,
@@ -277,24 +277,25 @@ static const struct WindowTemplate sWindowTemplates[WIN_COUNT + 1] =
 
 // This handles what characters get inserted when a key is pressed
 // The keys shown on the keyboard are handled separately by sNamingScreenKeyboardText
+//!< French Difference
 static const u8 sKeyboardChars[KBPAGE_COUNT][KBROW_COUNT][KBCOL_COUNT] = {
     [KEYBOARD_LETTERS_LOWER] = {
-        __("abcdef ."),
-        __("ghijkl ,"),
-        __("mnopqrs "),
-        __("tuvwxyz "),
+        __("abcdefgh."),
+        __("ijklmnop,"),
+        __("qrstuvwx "),
+        __("yz  -    "),
     },
     [KEYBOARD_LETTERS_UPPER] = {
-        __("ABCDEF ."),
-        __("GHIJKL ,"),
-        __("MNOPQRS "),
-        __("TUVWXYZ "),
+        __("ABCDEFGH."),
+        __("IJKLMNOP,"),
+        __("QRSTUVWX "),
+        __("YZ  -    "),
     },
     [KEYBOARD_SYMBOLS] = {
-        __("01234   "),
-        __("56789   "),
-        __("!?♂♀/-  "),
-        __("…“”‘'   "),
+        __("01234    "),
+        __("56789    "),
+        __("!?♂♀/    "),
+        __("…“”‘'    "),
     }
 };
 
@@ -304,8 +305,8 @@ static const u8 sPageColumnCounts[KBPAGE_COUNT] = {
     [KEYBOARD_SYMBOLS]       = 6
 };
 static const u8 sPageColumnXPos[KBPAGE_COUNT][KBCOL_COUNT] = {
-    [KEYBOARD_LETTERS_LOWER] = {0, 12, 24, 56, 68, 80, 92, 123},
-    [KEYBOARD_LETTERS_UPPER] = {0, 12, 24, 56, 68, 80, 92, 123},
+    [KEYBOARD_LETTERS_LOWER] = {0, 12, 24, 36, 62, 74, 86, 98, 123},
+    [KEYBOARD_LETTERS_UPPER] = {0, 12, 24, 36, 62, 74, 86, 98, 123},
     [KEYBOARD_SYMBOLS]       = {0, 22, 44, 66, 88, 110}
 };
 
@@ -1708,12 +1709,17 @@ static void DrawNormalTextEntryBox(void)
     PutWindowTilemap(sNamingScreen->windows[WIN_TEXT_ENTRY_BOX]);
 }
 
+/**
+ * French Difference
+ * 
+ * gStringVar1 is used as a buffer here
+*/
 static void DrawMonTextEntryBox(void)
 {
-    u8 buffer[32];
+    u8 buffer[48];
 
-    StringCopy(buffer, gSpeciesNames[sNamingScreen->monSpecies]);
-    StringAppendN(buffer, sNamingScreen->template->title, 15);
+    StringCopy(gStringVar1, gSpeciesNames[sNamingScreen->monSpecies]);
+    StringExpandPlaceholders(buffer, sNamingScreen->template->title);
     FillWindowPixelBuffer(sNamingScreen->windows[WIN_TEXT_ENTRY_BOX], PIXEL_FILL(1));
     AddTextPrinterParameterized(sNamingScreen->windows[WIN_TEXT_ENTRY_BOX], FONT_NORMAL, buffer, 8, 1, 0, 0);
     PutWindowTilemap(sNamingScreen->windows[WIN_TEXT_ENTRY_BOX]);
@@ -2560,12 +2566,12 @@ static const struct SpriteSheet sSpriteSheets[] =
     {gNamingScreenBackButton_Gfx,     0x1E0,  GFXTAG_BACK_BUTTON},
     {gNamingScreenOKButton_Gfx,       0x1E0,  GFXTAG_OK_BUTTON},
     {gNamingScreenPageSwapFrame_Gfx,  0x280,  GFXTAG_PAGE_SWAP_FRAME},
-    {gNamingScreenPageSwapButton_Gfx, 0x100,  GFXTAG_PAGE_SWAP_BUTTON},
+    {gNamingScreenPageSwapButton_Gfx + 0x8, 0x100,  GFXTAG_PAGE_SWAP_BUTTON},
     {gNamingScreenPageSwapUpper_Gfx,  0x060,  GFXTAG_PAGE_SWAP_UPPER},
     {gNamingScreenPageSwapLower_Gfx,  0x060,  GFXTAG_PAGE_SWAP_LOWER},
     {gNamingScreenPageSwapOthers_Gfx, 0x060,  GFXTAG_PAGE_SWAP_OTHERS},
     {gNamingScreenCursor_Gfx,         0x080,  GFXTAG_CURSOR},
-    {gNamingScreenCursorSquished_Gfx, 0x080,  GFXTAG_CURSOR_SQUISHED},
+    {gNamingScreenCursorSquished_Gfx + 0x8, 0x080,  GFXTAG_CURSOR_SQUISHED},
     {gNamingScreenCursorFilled_Gfx,   0x080,  GFXTAG_CURSOR_FILLED},
     {gNamingScreenInputArrow_Gfx,     0x020,  GFXTAG_INPUT_ARROW},
     {gNamingScreenUnderscore_Gfx,     0x020,  GFXTAG_UNDERSCORE},

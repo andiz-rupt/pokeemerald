@@ -1199,12 +1199,16 @@ const u8 *GetMonIconTiles(u16 species, bool32 handleDeoxys)
 void TryLoadAllMonIconPalettesAtOffset(u16 offset)
 {
     s32 i;
+    const struct SpritePalette* monIconPalettePtr;
+
     if (offset <= BG_PLTT_ID(16 - ARRAY_COUNT(gMonIconPaletteTable)))
     {
-        for (i = 0; i < (int)ARRAY_COUNT(gMonIconPaletteTable); i++)
+        monIconPalettePtr = gMonIconPaletteTable;
+        for(i = ARRAY_COUNT(gMonIconPaletteTable) - 1; i >= 0; i--)
         {
-            LoadPalette(gMonIconPaletteTable[i].data, offset, PLTT_SIZE_4BPP);
-            offset += 16;
+            LoadPalette(monIconPalettePtr->data, offset, 0x20);
+            offset += 0x10;
+            monIconPalettePtr++;
         }
     }
 }

@@ -8,6 +8,7 @@
 #include "match_call.h"
 #include "pokenav.h"
 #include "strings.h"
+#include "international_string_util.h"
 #include "constants/region_map_sections.h"
 #include "constants/trainers.h"
 
@@ -279,7 +280,7 @@ static const struct MatchCallRival sMayMatchCallHeader =
     .type = MC_TYPE_RIVAL,
     .playerGender = MALE,
     .flag = FLAG_ENABLE_RIVAL_MATCH_CALL,
-    .desc = gText_MayBrendanMatchCallDesc,
+    .desc = gText_MayMatchCallDesc,
     .name = gText_ExpandedPlaceholder_May,
     .textData = sMayTextScripts
 };
@@ -308,7 +309,7 @@ static const struct MatchCallRival sBrendanMatchCallHeader =
     .type = MC_TYPE_RIVAL,
     .playerGender = FEMALE,
     .flag = FLAG_ENABLE_RIVAL_MATCH_CALL,
-    .desc = gText_MayBrendanMatchCallDesc,
+    .desc = gText_BrendanMatchCallDesc,
     .name = gText_ExpandedPlaceholder_Brendan,
     .textData = sBrendanTextScripts
 };
@@ -1085,10 +1086,13 @@ static void MatchCall_GetNameAndDesc_Birch(match_call_t matchCall, const u8 **de
     *name = matchCall.birch->name;
 }
 
+/**
+ * French Difference
+*/
 static void MatchCall_GetNameAndDescByRematchIdx(u32 idx, const u8 **desc, const u8 **name)
 {
     const struct Trainer *trainer = gTrainers + GetTrainerIdxByRematchIdx(idx);
-    *desc = gTrainerClassNames[trainer->trainerClass];
+    *desc = GetTrainerClassNameGenderSpecific(trainer->trainerClass, trainer->encounterMusic_gender, trainer->trainerName);
     *name = trainer->trainerName;
 }
 

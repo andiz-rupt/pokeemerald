@@ -1113,7 +1113,7 @@ static void HallOfFame_PrintWelcomeText(u8 unusedPossiblyWindowId, u8 unused2)
 
 static void HallOfFame_PrintMonInfo(struct HallofFameMon* currMon, u8 unused1, u8 unused2)
 {
-    u8 text[max(32, POKEMON_NAME_LENGTH + 1)];
+    u8 text[30];
     u8 *stringPtr;
     s32 dexNumber;
     s32 width;

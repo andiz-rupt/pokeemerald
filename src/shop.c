@@ -497,6 +497,10 @@ static void VBlankCB_BuyMenu(void)
     TransferPlttBuffer();
 }
 
+#define tItemCount data[1]
+#define tItemId data[5]
+#define tListTaskId data[7]
+
 static void CB2_InitBuyMenu(void)
 {
     u8 taskId;
@@ -769,7 +773,7 @@ static void BuyMenuDrawGraphics(void)
 {
     BuyMenuDrawMapGraphics();
     BuyMenuCopyMenuBgToBg1TilemapBuffer();
-    AddMoneyLabelObject(19, 11);
+    AddMoneyLabelObject(24, 11);
     PrintMoneyAmountInMoneyBoxWithBorder(WIN_MONEY, 1, 13, GetMoney(&gSaveBlock1Ptr->money));
     ScheduleBgCopyTilemapToVram(0);
     ScheduleBgCopyTilemapToVram(1);
@@ -855,10 +859,8 @@ static void BuyMenuCollectObjectEventData(void)
     u8 numObjects = 0;
 
     GetXYCoordsOneStepInFrontOfPlayer(&facingX, &facingY);
-
     for (y = 0; y < OBJECT_EVENTS_COUNT; y++)
         sShopData->viewportObjects[y][OBJ_EVENT_ID] = OBJECT_EVENTS_COUNT;
-
     for (y = 0; y < 5; y++)
     {
         for (x = 0; x < 7; x++)
