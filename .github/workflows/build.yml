@@ -11,7 +11,7 @@ jobs:
     env:
       GAME_VERSION: EMERALD
       GAME_REVISION: 0
-      GAME_LANGUAGE: ENGLISH
+      GAME_LANGUAGE: FRENCH
       MODERN: 0
       COMPARE: 1
     steps:
